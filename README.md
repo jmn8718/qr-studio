@@ -14,7 +14,11 @@ It uses [cdk-dia](https://www.npmjs.com/package/cdk-dia) package to create a dia
 
 You need to install [graphviz](https://graphviz.org/download/) first.
 
-Then run `npm run diagram` to generate the diagram
+Then run `npm run diagram` to generate the diagram.
+
+### Diagram
+
+![architecture diagram](./diagram.png)
 
 ## Useful commands
 
