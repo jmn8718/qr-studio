@@ -12,22 +12,26 @@
     "deploy": "cdk deploy",
     "destroy": "cdk destroy",
     "prettify": "prettier --write src",
+    "diagram": "cdk-dia",
+    "prediagram": "cdk synth",
     "test": "jest"
   },
   "devDependencies": {
-    "@types/jest": "^27.5.2",
-    "@types/node": "10.17.27",
-    "@types/prettier": "2.6.0",
-    "aws-cdk": "2.50.0",
-    "jest": "^27.5.1",
-    "prettier": "^2.7.1",
-    "ts-jest": "^27.1.4",
-    "ts-node": "^10.9.1",
-    "typescript": "~3.9.7"
+    "@faker-js/faker": "~7.6.0",
+    "@types/jest": "~27.5.2",
+    "@types/node": "~18.11.8",
+    "@types/prettier": "~2.6.0",
+    "aws-cdk": "~2.50.0",
+    "cdk-dia": "^0.7.0",
+    "jest": "~27.5.1",
+    "prettier": "~2.7.1",
+    "ts-jest": "~27.1.4",
+    "ts-node": "~10.9.1",
+    "typescript": "~4.8.4"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.50.0",
-    "constructs": "^10.0.0",
-    "source-map-support": "^0.5.21"
+    "aws-cdk-lib": "~2.50.0",
+    "constructs": "~10.0.0",
+    "source-map-support": "~0.5.21"
   }
 }

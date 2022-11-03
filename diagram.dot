@@ -1,0 +1,118 @@
+digraph "Diagram" {
+  splines = "ortho";
+  pad = "1.0";
+  nodesep = "0.60";
+  ranksep = "0.75";
+  fontname = "Sans-Serif";
+  fontsize = "15";
+  dpi = "200";
+  rankdir = "BT";
+  compound = "true";
+  fontcolor = "#222222";
+  edge [
+    color = "#D5871488",
+    penwidth = 2,
+    arrowhead = "dot",
+    arrowtail = "dot",
+  ];
+  node [
+    shape = "box",
+    style = "rounded",
+    fixedsize = true,
+    width = 1.7,
+    height = 1.7,
+    labelloc = "c",
+    imagescale = true,
+    fontname = "Sans-Serif",
+    fontsize = 8,
+    margin = 8,
+  ];
+  subgraph "DomainStack" {
+    subgraph "cluster-SubGraph.DomainStack" {
+      graph [
+        label = "DomainStack",
+        labelloc = "b",
+        labeljust = "l",
+        margin = "10",
+        fontsize = "16",
+        penwidth = "2",
+        pencolor = "#888888",
+        style = "filled,rounded",
+        fillcolor = "#e4e4e4",
+      ];
+      "DomainStack/qr-studio.io-hostedZone" [
+        label = " qr studio.io\nhostedZone",
+        fontsize = 12,
+        image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Resource/Res_Networking-and-Content-Delivery/Res_48_Dark/Res_Amazon-Route-53-Hosted-Zone_48_Dark_gen.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.4819999999999998,
+      ];
+      "DomainStack/domainCertificate" [
+        label = " domainCertificate",
+        fontsize = 12,
+      ];
+      "DomainStack/hostedZoneId" [
+        label = " hostedZoneId",
+        fontsize = 12,
+      ];
+      "DomainStack/hostedZoneName" [
+        label = " hostedZoneName",
+        fontsize = 12,
+      ];
+      subgraph "cluster-SubGraph.qr-studio.io-certificate" {
+        graph [
+          label = "qr-studio.io-certificate",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#d6d6d6",
+        ];
+        "DomainStack/qr-studio.io-certificate/CertificateRequestorFunction" [
+          label = "\nCertificateRequestorF",
+          fontsize = 12,
+          image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.4819999999999998,
+        ];
+        "DomainStack/qr-studio.io-certificate/CertificateRequestorResource" [
+          label = " CloudFormation\nCustomResource",
+          fontsize = 12,
+          image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.682,
+        ];
+      }
+    }
+  }
+  "DomainStack/qr-studio.io-certificate/CertificateRequestorFunction" -> "DomainStack/qr-studio.io-hostedZone" [
+    dir = "both",
+  ];
+  "DomainStack/domainCertificate" -> "DomainStack/qr-studio.io-certificate/CertificateRequestorResource" [
+    dir = "both",
+  ];
+  "DomainStack/hostedZoneId" -> "DomainStack/qr-studio.io-hostedZone" [
+    dir = "both",
+  ];
+}
