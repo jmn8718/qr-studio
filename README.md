@@ -1,14 +1,18 @@
-# Welcome to your CDK TypeScript project
+# qr-studio
 
-This is a blank project for CDK development with TypeScript.
+This project uses AWS CDK with TypeScript.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Configuration and setup
+
+- install *aws-cli*
+- configure *aws-cli* and a default profile
+- run `npm run bootstrap`
 
 ## Useful commands
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+* `npm run deploy --all`   deploy all the stacks to aws
+* `npm run deploy xxx`     deploy the stacks that matched the reg exp provided
+* `npm run cdk deploy`      deploy this stack to your default AWS account/region
+* `npm run cdk diff`        compare deployed stack with current state
+* `npm run cdk synth`       emits the synthesized CloudFormation template
+

@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/qr-studio.ts",
+  "app": "npx ts-node --prefer-ts-exts src/infrastructure/app.ts",
   "watch": {
     "include": [
       "**"

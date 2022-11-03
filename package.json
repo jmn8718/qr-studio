@@ -5,18 +5,23 @@
     "qr-studio": "bin/qr-studio.js"
   },
   "scripts": {
+    "bootstrap": "cdk bootstrap",
     "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest",
-    "cdk": "cdk"
+    "build-watch": "tsc -w",
+    "cdk": "cdk",
+    "deploy": "cdk deploy",
+    "destroy": "cdk destroy",
+    "prettify": "prettier --write src",
+    "test": "jest"
   },
   "devDependencies": {
     "@types/jest": "^27.5.2",
     "@types/node": "10.17.27",
     "@types/prettier": "2.6.0",
-    "jest": "^27.5.1",
-    "ts-jest": "^27.1.4",
     "aws-cdk": "2.50.0",
+    "jest": "^27.5.1",
+    "prettier": "^2.7.1",
+    "ts-jest": "^27.1.4",
     "ts-node": "^10.9.1",
     "typescript": "~3.9.7"
   },
