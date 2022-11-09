@@ -1,5 +1,5 @@
 import * as cdk from 'aws-cdk-lib';
-import {faker} from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 import { Template } from 'aws-cdk-lib/assertions';
 import { Domain } from './domain';
 import { Parameters } from '../../types';
@@ -8,17 +8,17 @@ describe('domain stack', () => {
   test('create stack only with domainName', () => {
     const app = new cdk.App();
     const stack = new Domain(app, 'MyTestStack', {
-      domainName: faker.internet.domainName()
+      domainName: faker.internet.domainName(),
     });
     const template = Template.fromStack(stack);
     template.hasResourceProperties('AWS::SSM::Parameter', {
-      "Name": Parameters.domainCertificate
+      Name: Parameters.domainCertificate,
     });
     template.hasResourceProperties('AWS::SSM::Parameter', {
-      "Name": Parameters.hostedZoneId
+      Name: Parameters.hostedZoneId,
     });
     template.hasResourceProperties('AWS::SSM::Parameter', {
-      "Name": Parameters.hostedZoneName
+      Name: Parameters.hostedZoneName,
     });
   });
 
@@ -26,17 +26,17 @@ describe('domain stack', () => {
     const app = new cdk.App();
     const stack = new Domain(app, 'MyTestStack', {
       domainName: faker.internet.domainName(),
-      subdomains: [faker.internet.domainWord()]
+      subdomains: [faker.internet.domainWord()],
     });
     const template = Template.fromStack(stack);
     template.hasResourceProperties('AWS::SSM::Parameter', {
-      "Name": Parameters.domainCertificate
+      Name: Parameters.domainCertificate,
     });
     template.hasResourceProperties('AWS::SSM::Parameter', {
-      "Name": Parameters.hostedZoneId
+      Name: Parameters.hostedZoneId,
     });
     template.hasResourceProperties('AWS::SSM::Parameter', {
-      "Name": Parameters.hostedZoneName
+      Name: Parameters.hostedZoneName,
     });
   });
 });

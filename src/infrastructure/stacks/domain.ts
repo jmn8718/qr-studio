@@ -1,7 +1,11 @@
-import { Stack, StackProps } from 'aws-cdk-lib';
+import type { StackProps } from 'aws-cdk-lib';
+import { Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { PublicHostedZone } from 'aws-cdk-lib/aws-route53';
-import { DnsValidatedCertificate } from 'aws-cdk-lib/aws-certificatemanager';
+import {
+  CertificateValidation,
+  DnsValidatedCertificate,
+} from 'aws-cdk-lib/aws-certificatemanager';
 import { Parameters } from '../../types';
 import { ParameterTier, StringParameter } from 'aws-cdk-lib/aws-ssm';
 
@@ -11,9 +15,6 @@ interface IProps extends StackProps {
 }
 
 export class Domain extends Stack {
-  public readonly hostedZoneId: string;
-  public readonly hostedZoneName: string;
-
   constructor(scope: Construct, id: string, props: IProps) {
     super(scope, id, props);
 
@@ -40,6 +41,7 @@ export class Domain extends Stack {
         domainName: props.domainName,
         subjectAlternativeNames: subdomains,
         hostedZone,
+        validation: CertificateValidation.fromEmail(),
       }
     );
 

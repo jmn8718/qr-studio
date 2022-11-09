@@ -12,7 +12,7 @@ const { account, region, domainName }: IEnvParameters = {
   domainName: app.node.tryGetContext('DOMAIN_NAME'),
 };
 
-new Domain(app, 'DomainStack', {
+new Domain(app, 'domain', {
   env: {
     account,
     region,
