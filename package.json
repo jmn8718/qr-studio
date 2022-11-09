@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "~7.6.0",
+    "@types/aws-lambda": "^8.10.108",
     "@types/jest": "~27.5.2",
     "@types/node": "~18.11.8",
     "@types/prettier": "~2.6.0",
@@ -31,7 +32,9 @@
   },
   "dependencies": {
     "aws-cdk-lib": "~2.50.0",
+    "aws-sdk": "^2.1249.0",
     "constructs": "~10.0.0",
+    "env-var": "^7.3.0",
     "source-map-support": "~0.5.21"
   }
 }

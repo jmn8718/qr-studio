@@ -3,6 +3,8 @@ import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { Domain } from './stacks';
 import { IEnvParameters, Regions } from '../types';
+import { PublicApi } from './stacks/publicApi';
+import { Database } from './stacks/database';
 
 const app = new cdk.App();
 
@@ -19,4 +21,9 @@ new Domain(app, 'domain', {
   },
   domainName,
   subdomains: [],
+});
+
+const database = new Database(app, 'database');
+new PublicApi(app, 'publicApi', {
+  table: database.table,
 });

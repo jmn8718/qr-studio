@@ -11,3 +11,13 @@ export interface IEnvParameters {
   region: string;
   domainName: string;
 }
+
+export interface IQrCode {
+  code: string;
+  url: string;
+}
+
+export interface ITable {
+  streamArn?: string;
+  name: string;
+}
