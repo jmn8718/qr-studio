@@ -27,10 +27,10 @@ digraph "Diagram" {
     fontsize = 8,
     margin = 8,
   ];
-  subgraph "DomainStack" {
-    subgraph "cluster-SubGraph.DomainStack" {
+  subgraph "App" {
+    subgraph "cluster-SubGraph.App" {
       graph [
-        label = "DomainStack",
+        label = "App",
         labelloc = "b",
         labeljust = "l",
         margin = "10",
@@ -38,36 +38,11 @@ digraph "Diagram" {
         penwidth = "2",
         pencolor = "#888888",
         style = "filled,rounded",
-        fillcolor = "#e4e4e4",
+        fillcolor = "#f3f3f3",
       ];
-      "DomainStack/qr-studio.io-hostedZone" [
-        label = " qr studio.io\nhostedZone",
-        fontsize = 12,
-        image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Resource/Res_Networking-and-Content-Delivery/Res_48_Dark/Res_Amazon-Route-53-Hosted-Zone_48_Dark_gen.png",
-        imagescale = "true",
-        imagepos = "tc",
-        penwidth = "0",
-        shape = "node",
-        fixedsize = "true",
-        labelloc = "b",
-        width = 2,
-        height = 2.4819999999999998,
-      ];
-      "DomainStack/domainCertificate" [
-        label = " domainCertificate",
-        fontsize = 12,
-      ];
-      "DomainStack/hostedZoneId" [
-        label = " hostedZoneId",
-        fontsize = 12,
-      ];
-      "DomainStack/hostedZoneName" [
-        label = " hostedZoneName",
-        fontsize = 12,
-      ];
-      subgraph "cluster-SubGraph.qr-studio.io-certificate" {
+      subgraph "cluster-SubGraph.domain" {
         graph [
-          label = "qr-studio.io-certificate",
+          label = "domain",
           labelloc = "b",
           labeljust = "l",
           margin = "10",
@@ -75,12 +50,12 @@ digraph "Diagram" {
           penwidth = "2",
           pencolor = "#888888",
           style = "filled,rounded",
-          fillcolor = "#d6d6d6",
+          fillcolor = "#e4e4e4",
         ];
-        "DomainStack/qr-studio.io-certificate/CertificateRequestorFunction" [
-          label = "\nCertificateRequestorF",
+        "domain/qr-studio.io-hostedZone" [
+          label = " qr studio.io\nhostedZone",
           fontsize = 12,
-          image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+          image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Resource/Res_Networking-and-Content-Delivery/Res_48_Dark/Res_Amazon-Route-53-Hosted-Zone_48_Dark_gen.png",
           imagescale = "true",
           imagepos = "tc",
           penwidth = "0",
@@ -90,10 +65,74 @@ digraph "Diagram" {
           width = 2,
           height = 2.4819999999999998,
         ];
-        "DomainStack/qr-studio.io-certificate/CertificateRequestorResource" [
-          label = " CloudFormation\nCustomResource",
+        "domain/domainCertificate" [
+          label = " domainCertificate",
           fontsize = 12,
-          image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+        ];
+        "domain/hostedZoneId" [
+          label = " hostedZoneId",
+          fontsize = 12,
+        ];
+        "domain/hostedZoneName" [
+          label = " hostedZoneName",
+          fontsize = 12,
+        ];
+        subgraph "cluster-SubGraph.qr-studio.io-certificate" {
+          graph [
+            label = "qr-studio.io-certificate",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#d6d6d6",
+          ];
+          "domain/qr-studio.io-certificate/CertificateRequestorFunction" [
+            label = "\nCertificateRequestorF",
+            fontsize = 12,
+            image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.4819999999999998,
+          ];
+          "domain/qr-studio.io-certificate/CertificateRequestorResource" [
+            label = " CloudFormation\nCustomResource",
+            fontsize = 12,
+            image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.682,
+          ];
+        }
+      }
+      subgraph "cluster-SubGraph.database" {
+        graph [
+          label = "database",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#e4e4e4",
+        ];
+        "database/table" [
+          label = " table",
+          fontsize = 12,
+          image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Service/Arch_Database/64/Arch_Amazon-DynamoDB_64@5x.png",
           imagescale = "true",
           imagepos = "tc",
           penwidth = "0",
@@ -101,18 +140,98 @@ digraph "Diagram" {
           fixedsize = "true",
           labelloc = "b",
           width = 1.2,
-          height = 1.682,
+          height = 1.466,
+        ];
+      }
+      subgraph "cluster-SubGraph.publicApi" {
+        graph [
+          label = "publicApi",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#e4e4e4",
+        ];
+        "publicApi/publicApi" [
+          label = " publicApi",
+          fontsize = 12,
+          image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-API-Gateway_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.466,
+        ];
+        "publicApi/publicApi-record" [
+          label = " publicApi-record",
+          fontsize = 12,
+          image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Resource/Res_Networking-and-Content-Delivery/Res_48_Dark/Res_Amazon-Route-53-Hosted-Zone_48_Dark_gen.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.466,
+        ];
+        "publicApi/handleQrcodeHandler" [
+          label = " handleQrcodeHandler",
+          fontsize = 12,
+          image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.266,
+        ];
+        "publicApi/createQrcodeHandler" [
+          label = " createQrcodeHandler",
+          fontsize = 12,
+          image = "/Users/josemiguel/workspace/qr-studio/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.266,
         ];
       }
     }
   }
-  "DomainStack/qr-studio.io-certificate/CertificateRequestorFunction" -> "DomainStack/qr-studio.io-hostedZone" [
+  "domain/qr-studio.io-certificate/CertificateRequestorFunction" -> "domain/qr-studio.io-hostedZone" [
     dir = "both",
   ];
-  "DomainStack/domainCertificate" -> "DomainStack/qr-studio.io-certificate/CertificateRequestorResource" [
+  "domain/domainCertificate" -> "domain/qr-studio.io-certificate/CertificateRequestorResource" [
     dir = "both",
   ];
-  "DomainStack/hostedZoneId" -> "DomainStack/qr-studio.io-hostedZone" [
+  "domain/hostedZoneId" -> "domain/qr-studio.io-hostedZone" [
+    dir = "both",
+  ];
+  "publicApi/publicApi" -> "publicApi/handleQrcodeHandler" [
+    dir = "both",
+  ];
+  "publicApi/publicApi" -> "publicApi/createQrcodeHandler" [
+    dir = "both",
+  ];
+  "publicApi/publicApi-record" -> "publicApi/publicApi" [
+    dir = "both",
+  ];
+  "publicApi/handleQrcodeHandler" -> "database/table" [
+    dir = "both",
+  ];
+  "publicApi/createQrcodeHandler" -> "database/table" [
     dir = "both",
   ];
 }
